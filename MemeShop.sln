@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeShop", "MemeShop\MemeShop.csproj", "{C6B5BC22-30DC-40E0-AEC3-73B7C1635002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{434D2E32-3B81-4008-B47B-8D0073FA5EED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{0CF40D0A-5244-4B05-A97B-869B7C8DE7E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C6B5BC22-30DC-40E0-AEC3-73B7C1635002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6B5BC22-30DC-40E0-AEC3-73B7C1635002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6B5BC22-30DC-40E0-AEC3-73B7C1635002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434D2E32-3B81-4008-B47B-8D0073FA5EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434D2E32-3B81-4008-B47B-8D0073FA5EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434D2E32-3B81-4008-B47B-8D0073FA5EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434D2E32-3B81-4008-B47B-8D0073FA5EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF40D0A-5244-4B05-A97B-869B7C8DE7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF40D0A-5244-4B05-A97B-869B7C8DE7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF40D0A-5244-4B05-A97B-869B7C8DE7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF40D0A-5244-4B05-A97B-869B7C8DE7E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
