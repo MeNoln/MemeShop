@@ -7,7 +7,7 @@
     {
         
         public ShopItemContext(string connect)
-            : base("name=ShopItemContext")
+            : base("name=MemeShopDatabase")
         {
         }
 

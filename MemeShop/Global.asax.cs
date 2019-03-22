@@ -1,4 +1,9 @@
-﻿using System;
+﻿using BLL.Infrastructure;
+using MemeShop.Utilities;
+using Ninject;
+using Ninject.Modules;
+using Ninject.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +21,11 @@ namespace MemeShop
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            NinjectModule module = new NinjectUtil();
+            NinjectModule server = new ServiceNinjectModule("DefaulConnection");
+            var kernel = new StandardKernel(module, server);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }
