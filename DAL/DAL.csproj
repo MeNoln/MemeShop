@@ -52,12 +52,13 @@
   <ItemGroup>
     <Compile Include="EF6\ShopItemContext.cs" />
     <Compile Include="Entities\ShopItem.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWorkPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ShopItemRepository.cs" />
+    <Compile Include="UoWRepository\UnitOfWorkRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
