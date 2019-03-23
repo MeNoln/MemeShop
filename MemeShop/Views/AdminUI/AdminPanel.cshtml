@@ -12,6 +12,7 @@
 </head>
 <body>
     <div>
+        <p>@Html.ActionLink("Create new Item", "Create")</p>
         @foreach (var item in Model)
         {
         <p>@item.Name || @item.Description || @item.Price ||

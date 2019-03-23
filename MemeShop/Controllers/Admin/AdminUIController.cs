@@ -51,5 +51,19 @@ namespace MemeShop.Controllers.Admin
 
             return RedirectToAction("AdminPanel");
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ShopItemViewModel context)
+        {
+            DTOShopItem model = new DTOShopItem { Name = context.Name, Description = context.Description, Price = context.Price };
+            itemService.Create(model);
+
+            return RedirectToAction("AdminPanel");
+        }
     }
 }
