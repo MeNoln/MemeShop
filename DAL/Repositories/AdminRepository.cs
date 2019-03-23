@@ -17,9 +17,8 @@ namespace DAL.Repositories
             this.db = db;
         }
 
-        public Admin GetAdmin(Admin model)
+        public Admin GetAdmin(int id)
         {
-            var id = model.Id;
             return db.Admins.Find(id);
         }
     }

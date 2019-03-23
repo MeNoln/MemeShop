@@ -50,11 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\DTOAdmin.cs" />
     <Compile Include="DataTransferObjects\DTOShopItem.cs" />
     <Compile Include="Infrastructure\ErrorMessage.cs" />
     <Compile Include="Infrastructure\ServiceNinjectModule.cs" />
+    <Compile Include="Interfaces\IAdminSevice.cs" />
     <Compile Include="Interfaces\IShopItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\ShopItemService.cs" />
   </ItemGroup>
   <ItemGroup>

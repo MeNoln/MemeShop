@@ -14,6 +14,7 @@ namespace BLL.Infrastructure
         public override void Load()
         {
             Bind<IUnitOfWorkPattern>().To<UnitOfWorkRepository>().WithConstructorArgument(connection);
+            Bind<IUoWAdminPattern>().To<UoWAdminRepository>().WithConstructorArgument(connection);
         }
     }
 }
