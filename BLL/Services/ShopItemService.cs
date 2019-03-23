@@ -43,10 +43,10 @@ namespace BLL.Services
             unitOfWork.ShopItemRepository.Delete(id);
         }
 
-        public void Edit(DTOShopItem model)
+        public void Edit(DTOShopItem context)
         {
-            var editModel = new ShopItem { Name = model.Name, Description = model.Description, Price = model.Price, PhotoPath = model.PhotoPath };
-            unitOfWork.ShopItemRepository.Edit(editModel);
+            ShopItem model = new ShopItem {Id = context.Id, Name = context.Name, Description = context.Description, Price = context.Price };
+            unitOfWork.ShopItemRepository.Edit(model);
         }
 
         public void Dispose()

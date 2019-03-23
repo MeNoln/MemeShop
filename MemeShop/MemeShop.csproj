@@ -152,7 +152,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminPageController.cs" />
+    <Compile Include="Controllers\Admin\AdminPageController.cs" />
+    <Compile Include="Controllers\Admin\AdminUIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,7 +242,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\AdminPage\Validation.cshtml" />
-    <Content Include="Views\AdminPage\AdminPanel.cshtml" />
+    <Content Include="Views\AdminUI\AdminPanel.cshtml" />
+    <Content Include="Views\AdminUI\DeleteItem.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
