@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IUoWAdminPattern : IDisposable
+    public interface IUoWAdminPattern
     {
         IAdminRepository<Admin> AdminRepository { get; }
-        void Save();
     }
 }

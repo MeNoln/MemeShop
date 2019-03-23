@@ -1,4 +1,4 @@
-﻿
+﻿@model MemeShop.Models.AdminModel.AdminViewModel
 @{
     Layout = null;
 }
@@ -11,7 +11,14 @@
     <title>Validation</title>
 </head>
 <body>
-    <div> 
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>@Html.EditorFor(model => model.Login)</p>
+            <p>@Html.EditorFor(model => model.Password)</p>
+            <p>@Html.EditorFor(model => model.PersonalKey)</p>
+            <input type="submit" value="Sign In" />
+        }
     </div>
 </body>
 </html>

@@ -8,6 +8,6 @@ namespace DAL.Interfaces
 {
     public interface IAdminRepository<T> where T : class
     {
-        T GetAdmin(int id);
+        bool GetAdmin(T model);
     }
 }

@@ -9,7 +9,6 @@ namespace BLL.Interfaces
 {
     public interface IAdminSevice
     {
-        DTOAdmin GetAdmin(int id);
-        void Dispose();
+        bool GetAdmin(DTOAdmin model);
     }
 }

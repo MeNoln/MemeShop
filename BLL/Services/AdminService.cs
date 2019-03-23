@@ -1,6 +1,7 @@
 ﻿using BLL.DataTransferObjects;
 using BLL.Infrastructure;
 using BLL.Interfaces;
+using DAL.Entities;
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,17 +19,11 @@ namespace BLL.Services
             this.uowAdmin = uowAdmin;
         }
 
-        public DTOAdmin GetAdmin(int id)
+        public bool GetAdmin(DTOAdmin context)
         {
-            var model = uowAdmin.AdminRepository.GetAdmin(id);
-            if(model == null)
-                throw new ErrorMessage("Admin not found", "");
-            return new DTOAdmin { Login = model.Login, Password = model.Password, PersonalKey = model.PersonalKey};
-        }
-
-        public void Dispose()
-        {
-            uowAdmin.Dispose();
+            Admin model = new Admin { Login = context.Login, Password = context.Password, PersonalKey = context.PersonalKey };
+            bool flag = uowAdmin.AdminRepository.GetAdmin(model);
+            return flag;
         }
     }
 }

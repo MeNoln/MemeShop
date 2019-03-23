@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF6\AdminContext.cs" />
     <Compile Include="EF6\ShopItemContext.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\ShopItem.cs" />

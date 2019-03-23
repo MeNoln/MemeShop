@@ -13,6 +13,7 @@ namespace MemeShop.Utilities
         public override void Load()
         {
             Bind<IShopItemService>().To<ShopItemService>();
+            Bind<IAdminSevice>().To<AdminService>();
         }
     }
 }

@@ -8,9 +8,16 @@ namespace DAL.Entities
 {
     public class Admin
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string PersonalKey { get; set; }
+
+        public static List<Admin> Admins()
+        {
+            List<Admin> list = new List<Admin>();
+            list.Add(new Admin { Login = "admin", Password = "123", PersonalKey = "mark"});
+
+            return list;
+        }
     }
 }

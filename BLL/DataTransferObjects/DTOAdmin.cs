@@ -8,7 +8,6 @@ namespace BLL.DataTransferObjects
 {
     public class DTOAdmin
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string PersonalKey { get; set; }

@@ -47,5 +47,11 @@ namespace MemeShop.Controllers
 
             return View();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            shopItemService.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

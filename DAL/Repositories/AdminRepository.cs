@@ -11,15 +11,16 @@ namespace DAL.Repositories
 {
     public class AdminRepository : IAdminRepository<Admin>
     {
-        private AdminContext db;
-        public AdminRepository(AdminContext db)
+        List<Admin> list = Admin.Admins();
+        public bool GetAdmin(Admin model)
         {
-            this.db = db;
-        }
-
-        public Admin GetAdmin(int id)
-        {
-            return db.Admins.Find(id);
+            bool flag = false;
+            foreach (var item in list)
+            {
+                if (item.Login == model.Login && item.Password == model.Password && item.PersonalKey == model.PersonalKey)
+                    flag = true;
+            }
+            return flag;
         }
     }
 }
