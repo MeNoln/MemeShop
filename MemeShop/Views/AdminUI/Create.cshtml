@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create", "AdminUI", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <h3>Name</h3>
             <p>@Html.EditorFor(model => model.Name)</p>
@@ -20,6 +20,8 @@
             <p>@Html.TextAreaFor(model => model.Description)</p>
             <h3>Price</h3>
             <p>@Html.EditorFor(model => model.Price)</p>
+            <p>Picture</p>
+            <p>@Html.TextBox("image", "", new { type = "file" })</p>
             
             <input type="submit" value="Create" />
         }

@@ -45,7 +45,7 @@ namespace BLL.Services
 
         public void Edit(DTOShopItem context)
         {
-            ShopItem model = new ShopItem {Id = context.Id, Name = context.Name, Description = context.Description, Price = context.Price };
+            ShopItem model = new ShopItem {Id = context.Id, Name = context.Name, Description = context.Description, Price = context.Price, PhotoPath = context.PhotoPath };
             unitOfWork.ShopItemRepository.Edit(model);
         }
 

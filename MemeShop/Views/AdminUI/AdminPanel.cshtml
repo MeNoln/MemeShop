@@ -11,12 +11,16 @@
     <title>AdminPanel</title>
 </head>
 <body>
+    <style>
+        #imag{width:100px;height:100px;}
+    </style>
     <div>
         <p>@Html.ActionLink("Create new Item", "Create")</p>
         @foreach (var item in Model)
         {
-        <p>@item.Name || @item.Description || @item.Price ||
-        @Html.ActionLink("Options", "DeleteItem", new { id = item.Id })</p>
+        <p>@item.Name || @item.Description || @item.Price || @Html.ActionLink("Options", "DeleteItem", new { id = item.Id })</p>
+
+        <img src="@Url.Content(item.PhotoPath)" alt="image" id="imag"/>
         }
     </div>
 </body>

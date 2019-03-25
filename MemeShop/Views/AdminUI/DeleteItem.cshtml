@@ -24,6 +24,7 @@
             <p>@Html.EditorFor(model => model.Price, new { placeholder = Model.Price })</p>
 
             @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.PhotoPath)
             <input type="submit" value="Edit" />
         }
         @using (Html.BeginForm())

@@ -188,7 +188,9 @@
     <Content Include="Views\AdminUI\AdminPanel.cshtml" />
     <Content Include="Views\AdminUI\DeleteItem.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Views\AdminUI\Create.cshtml" />
