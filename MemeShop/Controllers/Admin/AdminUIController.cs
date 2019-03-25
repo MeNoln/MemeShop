@@ -18,35 +18,33 @@ namespace MemeShop.Controllers.Admin
         {
             this.itemService = itemService;
         }
-
+        
         public ActionResult AdminPanel()
         {
-            IEnumerable<DTOShopItem> shop = itemService.GetAll();
-            var mapper = new MapperConfiguration(config => config.CreateMap<DTOShopItem, ShopItemViewModel>()).CreateMapper();
-            var map = mapper.Map<IEnumerable<DTOShopItem>, List<ShopItemViewModel>>(shop);
+            //if ((string)Session["connected"] != "Ok")
+            //    return RedirectToAction("Validation", "AdminPage");
+
+            AdminUIHelper helper = new AdminUIHelper(itemService);
+            var map = helper.MapDTOWithViewModel();
 
             return View(map);
         }
 
         public ActionResult DeleteItem(int? id)
         {
-            var context = itemService.Get(id);
-            ShopItemViewModel model = new ShopItemViewModel { Name = context.Name, Description = context.Description, Price = context.Price, PhotoPath = context.PhotoPath };
-
-            return View(model);
+             AdminUIHelper helper = new AdminUIHelper(itemService);
+            
+            return View(helper.GetCurrentUser(id));
         }
 
         [HttpPost]
         public ActionResult DeleteItem(int id)
         {
-            var model = itemService.Get(id);
-            string path = model.PhotoPath;
-            string serverPath = Request.MapPath(path);
-
-            if (System.IO.File.Exists(serverPath))
-                System.IO.File.Delete(serverPath);
-
-            itemService.Delete(id);
+            AdminUIHelper helper = new AdminUIHelper(itemService);
+            string serverPath = Request.MapPath(helper.GetFullserverPath(id));
+            
+            helper.DeleteImageOnServer(serverPath);
+            helper.DeleteItemFromServer(id);
 
             return RedirectToAction("AdminPanel");
         }
@@ -54,8 +52,8 @@ namespace MemeShop.Controllers.Admin
         [HttpPost]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PhotoPath")]ShopItemViewModel context)
         {
-            DTOShopItem model = new DTOShopItem {Id = context.Id, Name = context.Name, Description = context.Description, Price = context.Price, PhotoPath = context.PhotoPath };
-            itemService.Edit(model);
+            AdminUIHelper helper = new AdminUIHelper(itemService);
+            helper.EditItemOnServer(context);
 
             return RedirectToAction("AdminPanel");
         }
@@ -68,20 +66,21 @@ namespace MemeShop.Controllers.Admin
         [HttpPost]
         public ActionResult Create(ShopItemViewModel context, HttpPostedFileBase image)
         {
-            string modelPath = string.Empty;
-            if (image.ContentLength > 0)
+            if (ModelState.IsValid)
             {
-                string filename = Path.GetFileName(image.FileName);
-                string serverImgSave = Path.Combine(Server.MapPath("~/Images"), filename);
-                image.SaveAs(serverImgSave);
+                AdminUIHelper helper = new AdminUIHelper(itemService);
+                
+                string serverImgPath = Path.Combine(Server.MapPath("~/Images"), helper.GetFullImageName(image));
+                image.SaveAs(serverImgPath);
 
-                modelPath = "~/Images/" + filename;
+                string modelPath = "~/Images/" + helper.GetFullImageName(image);
+                
+                helper.CreateItemOnServer(context, modelPath);
+
+                return RedirectToAction("AdminPanel");
             }
 
-            DTOShopItem model = new DTOShopItem { Name = context.Name, Description = context.Description, Price = context.Price, PhotoPath = modelPath };
-            itemService.Create(model);
-
-            return RedirectToAction("AdminPanel");
+            return View();
         }
     }
 }

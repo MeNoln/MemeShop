@@ -26,27 +26,7 @@ namespace MemeShop.Controllers
 
             return View(item);
         }
-
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult About(ShopItemViewModel context)
-        {
-            DTOShopItem model = new DTOShopItem { Name = context.Name, Description = context.Description, Price = context.Price };
-            shopItemService.Create(model);
-
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
 
         protected override void Dispose(bool disposing)
         {

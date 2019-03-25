@@ -25,11 +25,15 @@ namespace MemeShop.Controllers
         [HttpPost]
         public ActionResult Validation(AdminViewModel context)
         {
-            DTOAdmin model = new DTOAdmin { Login = context.Login, Password = context.Password, PersonalKey = context.PersonalKey};
-            bool flag = adminSevice.GetAdmin(model);
+            AdminValidationHelper helper = new AdminValidationHelper(adminSevice);
+            bool flag = helper.ValidAdmin(context);
 
             if (flag)
+            {
+                //Session["connected"] = "Ok";
                 return RedirectToAction("AdminPanel", "AdminUI");
+            }
+
             return View(context);
         }
         

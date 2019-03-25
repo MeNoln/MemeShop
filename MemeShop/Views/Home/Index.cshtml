@@ -8,5 +8,6 @@
     <p>@Html.DisplayFor(modelItem => item.Name)</p>
     <p>@Html.DisplayFor(modelItem => item.Description)</p>
     <p>@Html.DisplayFor(modelItem => item.Price)</p>
+    <img src="@Url.Content(item.PhotoPath)" alt="image" />
     <br />
 }
