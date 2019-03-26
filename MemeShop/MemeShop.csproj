@@ -154,7 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Admin\AdminPageController.cs" />
     <Compile Include="Controllers\Admin\AdminUIController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Store\HomeController.cs" />
     <Compile Include="ExceptionFolder\EmptyFileException.cs" />
     <Compile Include="ExceptionFolder\ImageNotOnServerException.cs" />
     <Compile Include="ExceptionFolder\InvalidFileException.cs" />

@@ -26,5 +26,18 @@ namespace MemeShop.Controllers
             DTOAdmin model = new DTOAdmin { Login = context.Login, Password = context.Password, PersonalKey = context.PersonalKey };
             return adminSevice.GetAdmin(model);
         }
+
+        public HttpCookie AddCookie()
+        {
+            return addcook();
+        }
+
+        private HttpCookie addcook()
+        {
+            HttpCookie cookie = new HttpCookie("authOk");
+            cookie.Value = "authCookie";
+            cookie.Expires = DateTime.Now.AddDays(1);
+            return cookie;
+        }
     }
 }

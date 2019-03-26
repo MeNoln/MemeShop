@@ -21,8 +21,8 @@ namespace MemeShop.Controllers.Admin
         
         public ActionResult AdminPanel()
         {
-            //if ((string)Session["connected"] != "Ok")
-            //    return RedirectToAction("Validation", "AdminPage");
+            if (!HttpContext.Request.Cookies.AllKeys.Contains("authOk"))
+                return RedirectToAction("Validation", "AdminPage");
 
             AdminUIHelper helper = new AdminUIHelper(itemService);
             var map = helper.MapDTOWithViewModel();

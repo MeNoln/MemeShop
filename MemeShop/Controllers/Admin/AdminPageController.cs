@@ -30,7 +30,7 @@ namespace MemeShop.Controllers
 
             if (flag)
             {
-                //Session["connected"] = "Ok";
+                HttpContext.Response.Cookies.Add(helper.AddCookie());
                 return RedirectToAction("AdminPanel", "AdminUI");
             }
 
