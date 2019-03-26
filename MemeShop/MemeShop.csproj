@@ -157,6 +157,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="ExceptionFolder\EmptyFileException.cs" />
     <Compile Include="ExceptionFolder\ImageNotOnServerException.cs" />
+    <Compile Include="ExceptionFolder\InvalidFileException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
