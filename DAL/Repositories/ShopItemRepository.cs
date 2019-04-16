@@ -29,7 +29,12 @@ namespace DAL.Repositories
 
         public void Edit(ShopItem model)
         {
-            db.Entry(model).State = EntityState.Modified;
+            var obj = db.ShopItems.Find(model.Id);
+            obj.Name = model.Name;
+            obj.Description = model.Description;
+            obj.Price = model.Price;
+            obj.PhotoPath = model.PhotoPath;
+
             db.SaveChanges();
         }
 

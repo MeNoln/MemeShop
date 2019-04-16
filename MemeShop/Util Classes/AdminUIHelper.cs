@@ -81,16 +81,16 @@ namespace MemeShop.Controllers.Admin
             itemService.Delete(id);
         }
 
-        public void EditItemOnServer(ShopItemViewModel context)
+        public void EditItemOnServer(ShopItemViewModel context, string modelPath)
         {
-            editItem(context);
+            editItem(context, modelPath);
         }
 
-        private void editItem(ShopItemViewModel context)
+        private void editItem(ShopItemViewModel context, string modelPath)
         {
             DTOShopItem model = new DTOShopItem { Id = context.Id, Name = context.Name,
                                                   Description = context.Description, Price = context.Price,
-                                                  PhotoPath = context.PhotoPath };
+                                                  PhotoPath = modelPath };
             itemService.Edit(model);
         }
 

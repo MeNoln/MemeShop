@@ -50,11 +50,20 @@ namespace MemeShop.Controllers.Admin
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PhotoPath")]ShopItemViewModel context)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PhotoPath")]ShopItemViewModel context, HttpPostedFileBase image)
         {
             AdminUIHelper helper = new AdminUIHelper(itemService);
-            helper.EditItemOnServer(context);
 
+            string serverImgPath = Path.Combine(Server.MapPath("~/Images"), helper.GetFullImageName(image));
+            image.SaveAs(serverImgPath);
+
+            string deletePath = Request.MapPath(helper.GetFullserverPath(context.Id));
+            helper.DeleteImageOnServer(deletePath);
+
+            string modelPath = "~/Images/" + helper.GetFullImageName(image);
+            
+            helper.EditItemOnServer(context, modelPath);
+            
             return RedirectToAction("AdminPanel");
         }
 
