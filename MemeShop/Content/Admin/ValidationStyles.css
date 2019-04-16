@@ -1,0 +1,11 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    margin-left: 40%;
+    margin-right: 20%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+}

@@ -8,20 +8,42 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Admin/AdminUIStyles.css" rel="stylesheet" />
+    @Styles.Render("~/bundels/bootstrap")
     <title>AdminPanel</title>
 </head>
 <body>
-    <style>
-        #imag{width:100px;height:100px;}
-    </style>
-    <div>
-        <p>@Html.ActionLink("Create new Item", "Create")</p>
-        @foreach (var item in Model)
-        {
-        <p>@item.Name || @item.Description || @item.Price || @Html.ActionLink("Options", "DeleteItem", new { id = item.Id })</p>
-
-        <img src="@Url.Content(item.PhotoPath)" alt="image" id="imag"/>
-        }
+    <div class="top">
+        <h3 id="logo">Admin Page</h3>
     </div>
+
+    <div class="createLinkWrap">
+        <button id="btnLink">@Html.ActionLink("Create new Item", "Create", null, new { id = "createLink" })</button>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th></th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td><img src="@Url.Content(item.PhotoPath)" alt="image" id="imag"/></td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>@Html.ActionLink("Options", "DeleteItem", new { id = item.Id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+    @Scripts.Render("~/bundels/jsbootstrap")
 </body>
 </html>

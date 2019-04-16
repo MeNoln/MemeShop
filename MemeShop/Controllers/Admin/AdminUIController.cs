@@ -41,9 +41,11 @@ namespace MemeShop.Controllers.Admin
         public ActionResult DeleteItem(int id)
         {
             AdminUIHelper helper = new AdminUIHelper(itemService);
+
+            var model = itemService.Get(id);
+            string shortPath = model.PhotoPath;
             string serverPath = Request.MapPath(helper.GetFullserverPath(id));
-            
-            helper.DeleteImageOnServer(serverPath);
+            helper.DeleteImageOnServer(serverPath, shortPath);
             helper.DeleteItemFromServer(id);
 
             return RedirectToAction("AdminPanel");
@@ -54,14 +56,18 @@ namespace MemeShop.Controllers.Admin
         {
             AdminUIHelper helper = new AdminUIHelper(itemService);
 
-            string serverImgPath = Path.Combine(Server.MapPath("~/Images"), helper.GetFullImageName(image));
-            image.SaveAs(serverImgPath);
+            string modelPath = context.PhotoPath;
+            if (image != null)
+            {
+                string serverImgPath = Path.Combine(Server.MapPath("~/Images"), helper.GetFullImageName(image));
+                image.SaveAs(serverImgPath);
+                
+                string deletePath = Request.MapPath(helper.GetFullserverPath(context.Id));
+                helper.DeleteImageOnServer(deletePath);
 
-            string deletePath = Request.MapPath(helper.GetFullserverPath(context.Id));
-            helper.DeleteImageOnServer(deletePath);
+                modelPath = "~/Images/" + helper.GetFullImageName(image);
+            }
 
-            string modelPath = "~/Images/" + helper.GetFullImageName(image);
-            
             helper.EditItemOnServer(context, modelPath);
             
             return RedirectToAction("AdminPanel");

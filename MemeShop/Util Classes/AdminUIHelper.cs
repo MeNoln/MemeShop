@@ -71,6 +71,29 @@ namespace MemeShop.Controllers.Admin
             }
         }
 
+        public void DeleteImageOnServer(string serverpath, string shortPath)
+        {
+            deleteFromServer(serverpath, shortPath);
+        }
+
+        private void deleteFromServer(string serverpath, string shortPath)
+        {
+            var allProducts = itemService.GetAll();
+            var existOnServer = allProducts.Where(c => c.PhotoPath == shortPath);
+
+            if (existOnServer == null)
+            {
+                try
+                {
+                    System.IO.File.Delete(serverpath);
+                }
+                catch (ImageNotOnServerException)
+                {
+                    throw new ImageNotOnServerException("File not on server", "");
+                }
+            }
+        }
+
         public void DeleteItemFromServer(int id)
         {
             deleteItem(id);

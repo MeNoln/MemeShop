@@ -173,8 +173,13 @@
     <Content Include="App_Data\MemeShopDatabase_log.ldf">
       <DependentUpon>MemeShopDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Admin\AdminUIStyles.css" />
+    <Content Include="Content\Admin\CreateDeleteStyles.css" />
+    <Content Include="Content\Admin\ValidationStyles.css" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

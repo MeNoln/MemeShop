@@ -8,33 +8,58 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Admin/CreateDeleteStyles.css" rel="stylesheet" />
+    @Styles.Render("~/bundels/bootstrap")
     <title>DeleteItem</title>
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm("Edit", "AdminUI", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <p>@Html.DisplayFor(model => model.Name)</p>
-            <p>@Html.EditorFor(model => model.Name, new { placeholder = Model.Name })</p>
-
-            <p>@Html.DisplayFor(model => model.Description)</p>
-            <p>@Html.TextAreaFor(model => model.Description, new { placeholder = Model.Description })</p>
-
-            <p>@Html.DisplayFor(model => model.Price)</p>
-            <p>@Html.EditorFor(model => model.Price, new { placeholder = Model.Price })</p>
-            
-            <p>Picture</p>
-            <p>@Html.TextBox("image", "", new { type = "file" })</p>
-
-            @Html.HiddenFor(model => model.Id)
-            @Html.HiddenFor(model => model.PhotoPath)
-            <input type="submit" value="Edit" />
-        }
-        @using (Html.BeginForm())
-        {
-            @Html.HiddenFor(model => model.Id)
-            <input type="submit" value="Delete" />
-        }
+    <div class="top">
+        <h3 id="logo">Edit</h3>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="wrap">
+                    <h3 id="prodName">@Model.Name</h3><hr />
+                    <p id="prodDesc">@Model.Description</p>
+                    <h5 id="prodPrice">@Model.Price&#36;</h5>
+                    <img src="@Url.Content(Model.PhotoPath)" alt="Product Image" class="img"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="formWrap">
+                    @using (Html.BeginForm("Edit", "AdminUI", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <h3>Product Name</h3>
+                        <p>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = Model.Name } })</p>
+
+                        <h5>Description</h5>
+                        <p>@Html.TextAreaFor(model => model.Description, new { @class = "form-control area", placeholder = Model.Description })</p>
+
+                        <h5>Price</h5>
+                        <p>@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = Model.Price } })</p>
+
+                        <h5>Picture</h5>
+                        @Html.TextBox("image", "", new { type = "file", @class = "form-control-file" })
+                        <br />
+
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(model => model.PhotoPath)
+                        <input type="submit" value="Edit" class="btn btn-dark"/>
+                    }
+                    <hr />
+                    <p>Or You can <span id="del">Delete</span> this item(be careful!)</p>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.HiddenFor(model => model.Id)
+                        <input type="submit" value="Delete" class="btn btn-danger"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundels/jsbootstrap")
 </body>
 </html>
