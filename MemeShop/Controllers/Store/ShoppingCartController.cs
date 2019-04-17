@@ -2,11 +2,7 @@
 using MemeShop.Models;
 using MemeShop.Models.CartViewModel;
 using MemeShop.Models.EmailModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace MemeShop.Controllers.Store

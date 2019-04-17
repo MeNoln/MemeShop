@@ -3,10 +3,7 @@ using BLL.DataTransferObjects;
 using BLL.Interfaces;
 using MemeShop.Models;
 using MemeShop.Models.EmailModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Helpers;
 
 namespace MemeShop.Controllers
