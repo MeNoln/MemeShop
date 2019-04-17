@@ -1,0 +1,57 @@
+﻿@model MemeShop.Models.EmailModel.EmailSenderViewModel
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+<link href="~/Content/Store/PaymentStyle.css" rel="stylesheet" />
+}
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="wrapper">
+                <div class="form-group">
+                    <h5>Contact information</h5>
+                    @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <h5>Shipping Address</h5>
+                    <div class="form-inline">
+                        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Address" } })
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-control", placeholder = "Your City" } })
+                    @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(m => m.PostalCode, new { htmlAttributes = new { @class = "form-control", placeholder = "Postal Code" } })
+                    @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Send information to me" class="btn btn-info" />
+                </div>
+                <div class="form-group">
+                    <div class="text-info">
+                        @ViewBag.Status
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="/MainPage/StoreMenu" class="storeLink"><p id="back">&lt; CONTINUE SHOPPING</p></a>
+            </div>
+        }
+
+    </div>
+</div>
+

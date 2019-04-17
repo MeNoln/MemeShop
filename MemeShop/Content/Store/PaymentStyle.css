@@ -1,0 +1,13 @@
+﻿.wrapper {
+    padding: 50px 5px;
+}
+
+.storeLink {
+    color: black;
+    text-decoration: none;
+}
+
+    .storeLink:hover {
+        color: grey;
+        text-decoration: none;
+    }

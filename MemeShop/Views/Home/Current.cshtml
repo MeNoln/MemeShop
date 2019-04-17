@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6">
                 <h4>&Yuml; @Html.DisplayFor(m => m.Price) EUR</h4>
-                @using (Html.BeginForm("AddItem", "Cart", FormMethod.Get))
+                @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Get))
                 {
                     @Html.HiddenFor(m => m.Id)
                     @Html.DropDownList("sizes", new SelectList(new string[] { "SMALL", "MEDIUM", "LARGE", "X_LARGE" }), "SELECT A SIZE", new { id = "drop" })

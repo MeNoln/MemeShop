@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .storeLink {
+        color: black;
+        text-decoration: none;
+    }
+
+        .storeLink:hover {
+            color: grey;
+            text-decoration: none;
+        }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Your cart is empty!</h2>
+            <p>Check store and find something what you want</p>
+            <a href="/Home/StoreMain" class="storeLink"><p id="back">&lt; CONTINUE SHOPPING</p></a>
+        </div>
+    </div>
+</div>
+

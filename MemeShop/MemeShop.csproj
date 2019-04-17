@@ -155,6 +155,7 @@
     <Compile Include="Controllers\Admin\AdminPageController.cs" />
     <Compile Include="Controllers\Admin\AdminUIController.cs" />
     <Compile Include="Controllers\Store\HomeController.cs" />
+    <Compile Include="Controllers\Store\ShoppingCartController.cs" />
     <Compile Include="ExceptionFolder\EmptyFileException.cs" />
     <Compile Include="ExceptionFolder\ImageNotOnServerException.cs" />
     <Compile Include="ExceptionFolder\InvalidFileException.cs" />
@@ -162,10 +163,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminModel\AdminViewModel.cs" />
+    <Compile Include="Models\CartViewModel\Order.cs" />
+    <Compile Include="Models\EmailModel\EmailSenderViewModel.cs" />
     <Compile Include="Models\ShopItem\ShopItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util Classes\AdminUIHelper.cs" />
     <Compile Include="Util Classes\AdminValidationHelper.cs" />
+    <Compile Include="Util Classes\StoreClassHelper.cs" />
     <Compile Include="Utilities\NinjectUtil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,8 +182,10 @@
     <Content Include="Content\Admin\CreateProductStyle.css" />
     <Content Include="Content\Admin\ValidationStyles.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Store\CartSyle.css" />
     <Content Include="Content\Store\CurrentStyle.css" />
     <Content Include="Content\Store\HomePageStyle.css" />
+    <Content Include="Content\Store\PaymentStyle.css" />
     <Content Include="Content\Store\StoreMainPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -210,6 +216,10 @@
     <Content Include="Views\Home\StoreMain.cshtml" />
     <Content Include="Views\Home\_CurrentItem.cshtml" />
     <Content Include="Views\Home\Current.cshtml" />
+    <Content Include="Views\ShoppingCart\EmptyView.cshtml" />
+    <Content Include="Views\ShoppingCart\ShopCart.cshtml" />
+    <Content Include="Views\ShoppingCart\Payment.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

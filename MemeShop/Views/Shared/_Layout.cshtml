@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using MemeShop.Models.CartViewModel
+@{
+    //Part of code to show how many products we have already have in cart
+
+    int total = 0;
+    if (Session["cart"] == null)
+    {
+        total = 0;
+    }
+    else
+    {
+        List<Order> cart = (List<Order>)Session["cart"];
+        total = cart.Count;
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +45,7 @@
                     <a class="nav-link" href="@Url.Action("StoreMain", "Home")">Shop <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("ShoppingCart", "Cart")">Shopping Cart</a>
+                    <a class="nav-link" href="@Url.Action("ShopCart", "ShoppingCart")">Shopping Cart @total</a>
                 </li>
             </ul>
         </div>
