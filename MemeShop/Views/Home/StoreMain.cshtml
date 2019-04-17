@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MemeShop.Models.ShopItemViewModel>
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+<link href="~/Content/Store/StoreMainPage.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="allItems">
+        <div class="row offset-1">
+            @foreach (var item in Model)
+            {
+                @Html.Partial("_CurrentItem", item)
+            }
+        </div>
+    </div>
+</div>
+

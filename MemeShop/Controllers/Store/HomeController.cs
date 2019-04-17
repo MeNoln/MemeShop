@@ -18,7 +18,12 @@ namespace MemeShop.Controllers
             this.shopItemService = shopItemService;
         }
 
-        public ActionResult Index()
+        public ActionResult HomePage()
+        {
+            return View();
+        }
+
+        public ActionResult StoreMain()
         {
             IEnumerable<DTOShopItem> shopItem = shopItemService.GetAll();
             var mapper = new MapperConfiguration(config => config.CreateMap<DTOShopItem, ShopItemViewModel>()).CreateMapper();
@@ -27,6 +32,13 @@ namespace MemeShop.Controllers
             return View(item);
         }
         
+        public ActionResult Current(int id)
+        {
+            var context = shopItemService.Get(id);
+            ShopItemViewModel model = new ShopItemViewModel { Id = context.Id, Name = context.Name, Description = context.Description,
+            Price = context.Price, PhotoPath = context.PhotoPath };
+            return View(model);
+        }
 
         protected override void Dispose(bool disposing)
         {

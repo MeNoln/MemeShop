@@ -1,0 +1,30 @@
+﻿.top {
+    width: 100%;
+    height: 75px;
+    background-color: darkgrey;
+}
+
+#logo {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.wrap{
+    text-align: center;
+    margin-left: 50%;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.textInp{
+    border-radius: 10px;
+    outline: none;
+    outline-color: white;
+}
+
+.area{
+    resize: none;
+}

@@ -1,0 +1,10 @@
+﻿@model MemeShop.Models.ShopItemViewModel
+
+<div class="col-md-4">
+    <div class="item">
+        <img src="@Url.Content(@Model.PhotoPath)" alt="Alternate Text" id="img" />
+        <p>@Html.DisplayFor(item => item.Name)</p>
+        <p>@Html.DisplayFor(item => item.Price) EUR</p>
+        @Html.ActionLink("Open", "Current", routeValues: new { @Model.Id }, htmlAttributes: new { @class = "itemLink" })
+    </div>
+</div>

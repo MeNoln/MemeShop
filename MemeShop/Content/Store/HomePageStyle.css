@@ -1,0 +1,35 @@
+﻿body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Cinzel', sans-serif;
+}
+
+.middleText {
+    margin-top: 60%;
+    text-align: center;
+}
+
+#head {
+    padding-left: 35px;
+}
+
+.menuList {
+    padding-top: 20px;
+    list-style-type: none;
+    font-size: 24px;
+}
+
+.listItems {
+    padding: 10px 0;
+}
+
+.link {
+    color: black;
+    transition: 0.4s;
+}
+
+.link:hover {
+    color: darkgoldenrod;
+    text-decoration: none;
+}
