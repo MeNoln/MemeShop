@@ -164,6 +164,8 @@
     </Compile>
     <Compile Include="Models\AdminModel\AdminViewModel.cs" />
     <Compile Include="Models\CartViewModel\Order.cs" />
+    <Compile Include="Models\DiscountCode\DiscountCodeViewModel.cs" />
+    <Compile Include="Models\DiscountCode\DiscountMultupleViewModel.cs" />
     <Compile Include="Models\EmailModel\EmailSenderViewModel.cs" />
     <Compile Include="Models\ShopItem\ShopItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +182,7 @@
     <Content Include="Content\Admin\AdminUIStyles.css" />
     <Content Include="Content\Admin\CreateDeleteStyles.css" />
     <Content Include="Content\Admin\CreateProductStyle.css" />
+    <Content Include="Content\Admin\Discount\DiscountCodesPreview.css" />
     <Content Include="Content\Admin\ValidationStyles.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Store\CartSyle.css" />
@@ -220,6 +223,8 @@
     <Content Include="Views\ShoppingCart\ShopCart.cshtml" />
     <Content Include="Views\ShoppingCart\Payment.cshtml" />
     <Content Include="Views\ShoppingCart\CheckEmail.cshtml" />
+    <Content Include="Views\Shared\_DiscountLayout.cshtml" />
+    <Content Include="Views\AdminUI\Codes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

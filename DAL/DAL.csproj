@@ -50,18 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EF6\DIscountContext.cs" />
     <Compile Include="EF6\ShopItemContext.cs" />
     <Compile Include="Entities\Admin.cs" />
+    <Compile Include="Entities\DiscountCode.cs" />
     <Compile Include="Entities\ShopItem.cs" />
+    <Compile Include="Interfaces\IDiscountRepo\IDiscountRepository.cs" />
     <Compile Include="Interfaces\IRepository\IAdminRepository.cs" />
     <Compile Include="Interfaces\IRepository\IRepository.cs" />
     <Compile Include="Interfaces\UoWPattern\IUnitOfWorkPattern.cs" />
     <Compile Include="Interfaces\UoWPattern\IUoWAdminPattern.cs" />
+    <Compile Include="Interfaces\UoWPattern\IUoWDiscount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
+    <Compile Include="Repositories\DiscountRepository.cs" />
     <Compile Include="Repositories\ShopItemRepository.cs" />
     <Compile Include="UoWRepository\UnitOfWorkRepository.cs" />
     <Compile Include="UoWRepository\UoWAdminRepository.cs" />
+    <Compile Include="UoWRepository\UoWDiscount.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace MemeShop.Utilities
         {
             Bind<IShopItemService>().To<ShopItemService>();
             Bind<IAdminSevice>().To<AdminService>();
+            Bind<IDiscountCodeService>().To<DiscountCodeService>();
         }
     }
 }

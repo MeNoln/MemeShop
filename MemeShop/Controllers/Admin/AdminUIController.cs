@@ -2,6 +2,7 @@
 using BLL.DataTransferObjects;
 using BLL.Interfaces;
 using MemeShop.Models;
+using MemeShop.Models.DiscountCode;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,9 +15,11 @@ namespace MemeShop.Controllers.Admin
     public class AdminUIController : Controller
     {
         IShopItemService itemService { get; set; }
-        public AdminUIController(IShopItemService itemService)
+        IDiscountCodeService discountService { get; set; }
+        public AdminUIController(IShopItemService itemService, IDiscountCodeService discountService)
         {
             this.itemService = itemService;
+            this.discountService = discountService;
         }
         
         public ActionResult AdminPanel()
@@ -96,6 +99,36 @@ namespace MemeShop.Controllers.Admin
             }
 
             return View();
+        }
+
+        public ActionResult Codes()
+        {
+            IEnumerable<DTODiscountCode> code = discountService.GetAllCodes();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<DTODiscountCode, DiscountCodeViewModel>()).CreateMapper();
+            var map = mapper.Map<IEnumerable<DTODiscountCode>, List<DiscountCodeViewModel>>(code);
+            DiscountMultupleViewModel model = new DiscountMultupleViewModel { CodesEnum = map };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateNewCode(DiscountMultupleViewModel context)
+        {
+            if (ModelState.IsValid)
+            {
+                DTODiscountCode model = new DTODiscountCode { Code = context.DiscountCodeVM.Code, DiscountPerCent = context.DiscountCodeVM.DiscountPerCent };
+                discountService.Create(model);
+            }
+            
+            return RedirectToAction("Codes");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDiscountCode(int id)
+        {
+            discountService.Delete(id);
+
+            return RedirectToAction("Codes");
         }
 
         protected override void Dispose(bool disposing)

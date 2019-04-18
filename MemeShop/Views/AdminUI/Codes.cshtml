@@ -1,0 +1,58 @@
+﻿@model MemeShop.Models.DiscountCode.DiscountMultupleViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Admin/Discount/DiscountCodesPreview.css" rel="stylesheet" />
+    @Styles.Render("~/bundels/bootstrap")
+    <title>Codes</title>
+</head>
+<body>
+    <div class="top">
+        <h3 id="logo">Discount Codes</h3>
+    </div>
+    <div class="createLinkWrap">
+        <button id="btnLink">Create New</button>
+    </div>
+    <div>
+        @using (Html.BeginForm("CreateNewCode", "AdminUI", FormMethod.Post))
+        {
+            @Html.EditorFor(m => m.DiscountCodeVM.Code)
+            @Html.EditorFor(m => m.DiscountCodeVM.DiscountPerCent)
+            <input type="submit" value="Create" />
+        }
+    </div>
+
+    <table class="table">
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Per Cent</th>
+            <th></th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model.CodesEnum)
+            {
+                <tr>
+                    <td>@item.Code</td>
+                    <td>@item.DiscountPerCent</td>
+                    <td>
+                        @using (Html.BeginForm("DeleteDiscountCode", "AdminUI", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(m => m.DiscountCodeVM.Id)
+                            <input type="submit" value="Delete" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    @Scripts.Render("~/bundels/jsbootstrap")
+</body>
+</html>
