@@ -4,10 +4,14 @@ using DAL.Interfaces;
 using DAL.Repositories;
 using System;
 
+/// <summary>
+/// Unit of Work pattern with IDisposable pattern
+/// </summary>
 namespace DAL.UoWRepository
 {
     public class UnitOfWorkRepository : IUnitOfWorkPattern
     {
+        //Connection to database
         private ShopItemContext db;
         private ShopItemRepository shopItemRepo;
         public UnitOfWorkRepository(string connect)
@@ -15,6 +19,7 @@ namespace DAL.UoWRepository
             db = new ShopItemContext(connect);
         }
 
+        //Initialising repository
         public IRepository<ShopItem> ShopItemRepository
         {
             get
@@ -25,11 +30,13 @@ namespace DAL.UoWRepository
             }
         }
 
+        //Method to save changes in database
         public void Save()
         {
             db.SaveChanges();
         }
 
+        //IDisposable pattern
         private bool disposed = false;
 
         public virtual void Dispose(bool disposing)

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MemeShop.ExceptionFolder
 {
+    //If user trying to find image that doesn't exist on server send this exception
     public class ImageNotOnServerException : Exception
     {
         public string Property { get; set; }

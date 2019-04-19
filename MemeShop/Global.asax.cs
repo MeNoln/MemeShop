@@ -22,6 +22,7 @@ namespace MemeShop
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //IoC Container Settings
             NinjectModule module = new NinjectUtil();
             NinjectModule server = new ServiceNinjectModule("DefaulConnection");
             var kernel = new StandardKernel(module, server);

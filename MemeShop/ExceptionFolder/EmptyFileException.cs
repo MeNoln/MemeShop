@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MemeShop.ExceptionFolder
 {
+    //If user sent to server nothing send this exception
     public class EmptyFileException : Exception
     {
         public string Property { get; set; }

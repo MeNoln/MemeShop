@@ -8,6 +8,8 @@ using System.Web.Helpers;
 
 namespace MemeShop.Controllers
 {
+    //Utility class to make Controllers look better
+    //And keep all logic here
     public class StoreClassHelper
     {
         IShopItemService shopItemService { get; set; }
@@ -16,6 +18,7 @@ namespace MemeShop.Controllers
             this.shopItemService = shopItemService;
         }
 
+        //Map Data Transfer Object with View Model object
         public List<ShopItemViewModel> MapDTOWithViewModel()
         {
             return mapDTOWithVM();
@@ -28,6 +31,7 @@ namespace MemeShop.Controllers
             return mapper.Map<IEnumerable<DTOShopItem>, List<ShopItemViewModel>>(shopItems);
         }
 
+        //Set class properties from View Model class to Data Transfer Object class
         public ShopItemViewModel ConvertFromDTOToViewModel(int id)
         {
             return convertDTOtoVM(id);
@@ -47,6 +51,7 @@ namespace MemeShop.Controllers
             return model;
         }
 
+        //SMTP port and sender settings. I'm using Google Mail account
         public void SetWebMailSMTP()
         {
             setWebMailSMTP();
@@ -67,6 +72,7 @@ namespace MemeShop.Controllers
             WebMail.From = "mark22dom@gmail.com";
         }
 
+        //Generate and send Message to user
         public void SendMessageToUser(EmailSenderViewModel model)
         {
             sendMessageToUser(model);

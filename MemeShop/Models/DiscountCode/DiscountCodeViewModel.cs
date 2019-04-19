@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MemeShop.Models.DiscountCode
 {
+    //Discount Code View Model
     public class DiscountCodeViewModel
     {
         public int Id { get; set; }

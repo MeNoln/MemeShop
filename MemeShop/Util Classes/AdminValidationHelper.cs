@@ -8,6 +8,8 @@ using System.Web;
 
 namespace MemeShop.Controllers
 {
+    //Utility class to make Controllers look better
+    //And keep all logic here
     public class AdminValidationHelper
     {
         IAdminSevice adminSevice { get; set; }
@@ -16,6 +18,7 @@ namespace MemeShop.Controllers
             this.adminSevice = adminSevice;
         }
 
+        //Method to find Admin in List
         public bool ValidAdmin(AdminViewModel context)
         {
             return checkAdminInDB(context);
@@ -27,6 +30,7 @@ namespace MemeShop.Controllers
             return adminSevice.GetAdmin(model);
         }
 
+        //Method to add Cookiez to user on 1 day
         public HttpCookie AddCookie()
         {
             return addcook();

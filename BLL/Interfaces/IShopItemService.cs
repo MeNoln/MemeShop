@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace BLL.Interfaces
 {
+    //Shop items service Interface
     public interface IShopItemService
     {
         IEnumerable<DTOShopItem> GetAll();
@@ -10,6 +11,8 @@ namespace BLL.Interfaces
         void Create(DTOShopItem model);
         void Delete(int id);
         void Edit(DTOShopItem model);
+
+        //IDisposable pattern(realised in DAL UoW class)
         void Dispose();
     }
 }

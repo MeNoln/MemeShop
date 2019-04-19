@@ -8,6 +8,7 @@ using System.Web;
 
 namespace MemeShop.Utilities
 {
+    //Binding Service Interfaces with Inherited classes
     public class NinjectUtil : NinjectModule
     {
         public override void Load()

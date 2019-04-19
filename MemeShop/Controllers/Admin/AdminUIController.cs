@@ -10,8 +10,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+/// <summary>
+/// All UI of admin pannel here
+/// All logic incapsulated in AdminUIHelper class
+/// </summary>
 namespace MemeShop.Controllers.Admin
 {
+    //Admin UI Controller
     public class AdminUIController : Controller
     {
         IShopItemService itemService { get; set; }
@@ -23,7 +28,6 @@ namespace MemeShop.Controllers.Admin
         }
         
         //Shop items UI
-
         public ActionResult AdminPanel()
         {
             if (!HttpContext.Request.Cookies.AllKeys.Contains("authOk"))
@@ -35,6 +39,7 @@ namespace MemeShop.Controllers.Admin
             return View(map);
         }
 
+        //Delete/Edit current item page
         public ActionResult DeleteItem(int? id)
         {
              AdminUIHelper helper = new AdminUIHelper(itemService);
@@ -78,6 +83,7 @@ namespace MemeShop.Controllers.Admin
             return RedirectToAction("AdminPanel");
         }
 
+        //Create new item page
         public ActionResult Create()
         {
             return View();
@@ -104,7 +110,6 @@ namespace MemeShop.Controllers.Admin
         }
 
         //Discount codes UI
-
         public ActionResult Codes()
         {
             DiscountCodesHelper helper = new DiscountCodesHelper(discountService);
@@ -112,6 +117,7 @@ namespace MemeShop.Controllers.Admin
             return View(helper.MapDiscountVMWithDTO());
         }
 
+        //I made create form and all codes on one page so I use Multiple class with enum of all codes and current code model
         [HttpPost]
         public ActionResult CreateNewCode(DiscountMultupleViewModel context)
         {
@@ -131,6 +137,7 @@ namespace MemeShop.Controllers.Admin
             return RedirectToAction("Codes");
         }
 
+        //IDisposable pattern to close connection to Database
         protected override void Dispose(bool disposing)
         {
             itemService.Dispose();

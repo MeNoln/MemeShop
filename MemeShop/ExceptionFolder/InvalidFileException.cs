@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MemeShop.ExceptionFolder
 {
+    //If file type is incorrect send this exception
     public class InvalidFileException : Exception
     {
         public string Property { get; set; }

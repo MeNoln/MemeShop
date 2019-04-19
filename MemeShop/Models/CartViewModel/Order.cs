@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MemeShop.Models.CartViewModel
 {
+    //Order View Model
     public class Order
     {
         public ShopItemViewModel shopItemViewModel { get; set; }

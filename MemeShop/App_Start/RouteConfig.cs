@@ -9,6 +9,7 @@ namespace MemeShop
 {
     public class RouteConfig
     {
+        //Application start route /Home/HomePage
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

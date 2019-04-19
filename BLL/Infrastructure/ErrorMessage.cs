@@ -2,6 +2,7 @@
 
 namespace BLL.Infrastructure
 {
+    //Error message class, to show what's wrong
     public class ErrorMessage : Exception
     {
         public string Property { get; protected set; }

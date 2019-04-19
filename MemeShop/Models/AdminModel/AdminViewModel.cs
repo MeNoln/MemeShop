@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MemeShop.Models.AdminModel
 {
+    //Admin View Model
     public class AdminViewModel
     {
         [Required]

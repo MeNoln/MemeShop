@@ -2,6 +2,7 @@
 
 namespace DAL.Interfaces
 {
+    //Shop items Interface
     public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();

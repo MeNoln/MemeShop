@@ -196,8 +196,6 @@
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\DiscountCodeScripts.js" />
     <Content Include="Scripts\formPrevent.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -224,10 +222,8 @@
     <Content Include="Views\Home\_CurrentItem.cshtml" />
     <Content Include="Views\Home\Current.cshtml" />
     <Content Include="Views\ShoppingCart\EmptyView.cshtml" />
-    <Content Include="Views\ShoppingCart\ShopCart.cshtml" />
     <Content Include="Views\ShoppingCart\Payment.cshtml" />
     <Content Include="Views\ShoppingCart\CheckEmail.cshtml" />
-    <Content Include="Views\Shared\_DiscountLayout.cshtml" />
     <Content Include="Views\AdminUI\Codes.cshtml" />
   </ItemGroup>
   <ItemGroup>

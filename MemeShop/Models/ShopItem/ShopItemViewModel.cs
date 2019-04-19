@@ -2,6 +2,7 @@
 
 namespace MemeShop.Models
 {
+    //Shop item View Model
     public class ShopItemViewModel
     {
         public int Id { get; set; }

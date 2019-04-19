@@ -7,8 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+/// <summary>
+/// Class Helper
+/// </summary>
 namespace MemeShop.Controllers.Admin
 {
+    //Utility class to make Controllers look better
+    //And keep all logic here
     public class DiscountCodesHelper
     {
         IDiscountCodeService discountService { get; set; }
@@ -17,6 +22,7 @@ namespace MemeShop.Controllers.Admin
             this.discountService = discountService;
         }
 
+        //Mapping Data Transfer Object to View Model object
         public DiscountMultupleViewModel MapDiscountVMWithDTO()
         {
             return map();

@@ -3,6 +3,7 @@
     using DAL.Entities;
     using System.Data.Entity;
 
+    //Data Context(Code First)
     public class ShopItemContext : DbContext
     {
         
@@ -11,6 +12,7 @@
         {
         }
 
+        //Shop items table
         public DbSet<ShopItem> ShopItems { get; set; }
         
     }

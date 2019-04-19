@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MemeShop.Models.DiscountCode
 {
+    //Model with Enumerable of all discount codes and current code class
     public class DiscountMultupleViewModel
     {
         public IEnumerable<DiscountCodeViewModel> CodesEnum { get; set; }

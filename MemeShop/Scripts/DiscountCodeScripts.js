@@ -1,4 +1,5 @@
-﻿var btn = document.getElementById("btnLink");
+﻿//JS script to hide/show Create Pannel
+var btn = document.getElementById("btnLink");
 var target = document.getElementById("showOnBtnClick");
 
 btn.onclick = function () {

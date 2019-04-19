@@ -1,5 +1,6 @@
 ﻿namespace DAL.Entities
 {
+    //Shop item model
     public class ShopItem
     {
         public int Id { get; set; }

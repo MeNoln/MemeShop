@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
+    //Discount codes service Interface
     public interface IDiscountCodeService
     {
         IEnumerable<DTODiscountCode> GetAllCodes();

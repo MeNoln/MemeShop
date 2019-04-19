@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BLL.DataTransferObjects
+﻿namespace BLL.DataTransferObjects
 {
+    //Admin Data Transfer Object
     public class DTOAdmin
     {
         public string Login { get; set; }

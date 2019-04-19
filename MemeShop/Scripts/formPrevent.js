@@ -1,4 +1,5 @@
-﻿document.getElementById('sub').addEventListener('click', preven, false);
+﻿//Prevent non size choose
+document.getElementById('sub').addEventListener('click', preven, false);
 
 
 function preven(evt) {

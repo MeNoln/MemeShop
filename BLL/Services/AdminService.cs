@@ -1,16 +1,14 @@
 ﻿using BLL.DataTransferObjects;
-using BLL.Infrastructure;
 using BLL.Interfaces;
 using DAL.Entities;
 using DAL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// This serviceI need to get flag about admin's those we have on server
+/// </summary>
 namespace BLL.Services
 {
+    //Admin service class to work with
     public class AdminService : IAdminSevice
     {
         IUoWAdminPattern uowAdmin { get; set; }
@@ -19,6 +17,7 @@ namespace BLL.Services
             this.uowAdmin = uowAdmin;
         }
 
+        //If we have this acount on server flag will be true, if not - false
         public bool GetAdmin(DTOAdmin context)
         {
             Admin model = new Admin { Login = context.Login, Password = context.Password, PersonalKey = context.PersonalKey };

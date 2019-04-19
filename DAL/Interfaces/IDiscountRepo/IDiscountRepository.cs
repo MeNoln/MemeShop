@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces.IDiscountRepo
 {
+    //Discount codes Interface
     public interface IDiscountRepo<T> where T : class
     {
         IEnumerable<T> GetAllCodes();

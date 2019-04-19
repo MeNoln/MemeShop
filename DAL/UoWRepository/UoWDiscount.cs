@@ -4,15 +4,15 @@ using DAL.Interfaces.IDiscountRepo;
 using DAL.Interfaces.UoWPattern;
 using DAL.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// Unit of Work pattern with IDisposable pattern
+/// </summary>
 namespace DAL.UoWRepository
 {
     public class UoWDiscount : IUoWDIscount
     {
+        //Connection to database
         private DiscountContext db;
         private DiscountRepository discountRepository;
         public UoWDiscount(string connect)
@@ -20,6 +20,7 @@ namespace DAL.UoWRepository
             db = new DiscountContext(connect);
         }
 
+        //Initialising repository
         public IDiscountRepo<DiscountCode> DiscountRepository
         {
             get
@@ -30,11 +31,13 @@ namespace DAL.UoWRepository
             }
         }
 
+        //Save changes in database method
         public void Save()
         {
             db.SaveChanges();
         }
 
+        //IDisposable pattern
         private bool disposed = false;
 
         public virtual void Dispose(bool disposing)

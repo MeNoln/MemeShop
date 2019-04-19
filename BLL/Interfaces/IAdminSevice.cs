@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
+    //Admin service Interface
     public interface IAdminSevice
     {
         bool GetAdmin(DTOAdmin model);

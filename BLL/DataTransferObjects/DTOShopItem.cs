@@ -1,5 +1,6 @@
 ﻿namespace BLL.DataTransferObjects
 {
+    //Shop item Data Transfer Object
     public class DTOShopItem
     {
         public int Id { get; set; }

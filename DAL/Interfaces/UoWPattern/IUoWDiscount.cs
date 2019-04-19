@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces.UoWPattern
 {
+    //Unit of Work pattern for Discount Codes pattern
     public interface IUoWDIscount : IDisposable
     {
         IDiscountRepo<DiscountCode> DiscountRepository { get; }

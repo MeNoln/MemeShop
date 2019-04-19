@@ -11,6 +11,8 @@ using System.Web;
 
 namespace MemeShop.Controllers.Admin
 {
+    //Utility class to make Controllers look better
+    //And keep all logic here
     public class AdminUIHelper
     {
         IShopItemService itemService { get; set; }
@@ -19,6 +21,7 @@ namespace MemeShop.Controllers.Admin
             this.itemService = itemService;
         }
 
+        //Map Data Transfer Object to View Model object
         public List<ShopItemViewModel> MapDTOWithViewModel()
         {
             return createMap();
@@ -31,6 +34,7 @@ namespace MemeShop.Controllers.Admin
             return mapper.Map<IEnumerable<DTOShopItem>, List<ShopItemViewModel>>(shop);
         }
 
+        //Find Current product in Database
         public ShopItemViewModel GetCurrentUser(int? id)
         {
             return findInDB(id);
@@ -43,6 +47,7 @@ namespace MemeShop.Controllers.Admin
                                            Price = context.Price, PhotoPath = context.PhotoPath };
         }
 
+        //Generate full Image path
         public string GetFullserverPath(int id)
         {
             return getPath(id);
@@ -54,6 +59,7 @@ namespace MemeShop.Controllers.Admin
             return model.PhotoPath;
         }
 
+        //Delete Image from folder
         public void DeleteImageOnServer(string serverpath)
         {
             deleteFromServer(serverpath);
@@ -94,6 +100,7 @@ namespace MemeShop.Controllers.Admin
             }
         }
 
+        //Delete object from Database
         public void DeleteItemFromServer(int id)
         {
             deleteItem(id);
@@ -104,6 +111,7 @@ namespace MemeShop.Controllers.Admin
             itemService.Delete(id);
         }
 
+        //Change item properties in Database
         public void EditItemOnServer(ShopItemViewModel context, string modelPath)
         {
             editItem(context, modelPath);
@@ -117,6 +125,7 @@ namespace MemeShop.Controllers.Admin
             itemService.Edit(model);
         }
 
+        //Get Image name. Example : ~/Images/test.img
         public string GetFullImageName(HttpPostedFileBase image)
         {
             return getImageName(image);
@@ -141,6 +150,7 @@ namespace MemeShop.Controllers.Admin
             }
         }
 
+        //Add new item in Database
         public void CreateItemOnServer(ShopItemViewModel context, string modelPath)
         {
             createItem(context, modelPath);

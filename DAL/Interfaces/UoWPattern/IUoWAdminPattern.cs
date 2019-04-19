@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
+    //Unit of Work pattern for Admin repo
     public interface IUoWAdminPattern
     {
         IAdminRepository<Admin> AdminRepository { get; }

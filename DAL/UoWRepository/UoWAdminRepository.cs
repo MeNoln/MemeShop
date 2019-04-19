@@ -1,20 +1,15 @@
-﻿using DAL.EF6;
-using DAL.Entities;
+﻿using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.UoWRepository
 {
     public class UoWAdminRepository : IUoWAdminPattern
     {
+        //No db connection because I use local admin check
         private AdminRepository adminRepository;
         
-        
+        //Initialising repository
         public IAdminRepository<Admin> AdminRepository
         {
             get

@@ -6,16 +6,22 @@ using DAL.Entities;
 using DAL.Interfaces;
 using System.Collections.Generic;
 
+/// <summary>
+/// Shop items service with using Automapper
+/// </summary>
 namespace BLL.Services
 {
+    //Shop item service class to work with
     public class ShopItemService : IShopItemService
     {
+        //Pattern initialise
         IUnitOfWorkPattern unitOfWork { get; set; }
         public ShopItemService(IUnitOfWorkPattern context)
         {
             unitOfWork = context;
         }
 
+        //Using AutoMapper to map DTO object with DAL
         public IEnumerable<DTOShopItem> GetAll()
         {
             var mapper = new MapperConfiguration(config => config.CreateMap<ShopItem, DTOShopItem>()).CreateMapper();
@@ -49,6 +55,7 @@ namespace BLL.Services
             unitOfWork.ShopItemRepository.Edit(model);
         }
 
+        //IDisposable pattern
         public void Dispose()
         {
             unitOfWork.Dispose();

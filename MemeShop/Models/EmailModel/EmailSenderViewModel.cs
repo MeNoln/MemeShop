@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MemeShop.Models.EmailModel
 {
+    //Model for SMTP to send user information about his order
     public class EmailSenderViewModel
     {
         [Required]
