@@ -4,21 +4,34 @@
     background-color: darkgrey;
 }
 
-#logo {
+.logo {
     text-align: center;
     padding-top: 10px;
 }
 
-.createLinkWrap {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.logoLink{
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 10px;
+    justify-content: flex-end;
+    color: white;
+    transition: 0.4s;
 }
+
+    .logoLink:hover{
+        text-decoration: none;
+        color: antiquewhite;
+    }
+
+    .createLinkWrap {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 10px;
+    }
 
 #createLink {
     color: black;

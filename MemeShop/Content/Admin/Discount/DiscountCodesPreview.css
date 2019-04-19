@@ -19,3 +19,24 @@
     position: sticky;
     top: 10px;
 }
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    transition: 0.4s;
+}
+
+    .logoLink:hover {
+        text-decoration: none;
+        color: antiquewhite;
+    }

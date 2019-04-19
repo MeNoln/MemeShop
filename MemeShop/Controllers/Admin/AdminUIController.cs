@@ -22,6 +22,8 @@ namespace MemeShop.Controllers.Admin
             this.discountService = discountService;
         }
         
+        //Shop items UI
+
         public ActionResult AdminPanel()
         {
             if (!HttpContext.Request.Cookies.AllKeys.Contains("authOk"))
@@ -101,14 +103,13 @@ namespace MemeShop.Controllers.Admin
             return View();
         }
 
+        //Discount codes UI
+
         public ActionResult Codes()
         {
-            IEnumerable<DTODiscountCode> code = discountService.GetAllCodes();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<DTODiscountCode, DiscountCodeViewModel>()).CreateMapper();
-            var map = mapper.Map<IEnumerable<DTODiscountCode>, List<DiscountCodeViewModel>>(code);
-            DiscountMultupleViewModel model = new DiscountMultupleViewModel { CodesEnum = map };
+            DiscountCodesHelper helper = new DiscountCodesHelper(discountService);
 
-            return View(model);
+            return View(helper.MapDiscountVMWithDTO());
         }
 
         [HttpPost]
@@ -122,8 +123,7 @@ namespace MemeShop.Controllers.Admin
             
             return RedirectToAction("Codes");
         }
-
-        [HttpPost]
+        
         public ActionResult DeleteDiscountCode(int id)
         {
             discountService.Delete(id);

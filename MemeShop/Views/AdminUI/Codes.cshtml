@@ -15,17 +15,22 @@
 <body>
     <div class="top">
         <h3 id="logo">Discount Codes</h3>
+        @Html.ActionLink("Admin Pannel", "AdminPanel", null, new { @class = "logoLink" })
     </div>
     <div class="createLinkWrap">
-        <button id="btnLink">Create New</button>
+        <button id="btnLink" class="btn btn-light">Hide Form</button>
     </div>
-    <div>
-        @using (Html.BeginForm("CreateNewCode", "AdminUI", FormMethod.Post))
-        {
-            @Html.EditorFor(m => m.DiscountCodeVM.Code)
-            @Html.EditorFor(m => m.DiscountCodeVM.DiscountPerCent)
-            <input type="submit" value="Create" />
-        }
+    <div class="container" id="showOnBtnClick">
+        <div class="wrap">
+            @using (Html.BeginForm("CreateNewCode", "AdminUI", FormMethod.Post))
+            {
+                <p>Enter Discount Code here:</p>
+                <p>@Html.EditorFor(m => m.DiscountCodeVM.Code)</p>
+                <p>Enter how much will be the sale(in %):</p>
+                <p>@Html.EditorFor(m => m.DiscountCodeVM.DiscountPerCent)</p>
+                <input type="submit" value="Create" class="btn btn-success"/>
+            }
+        </div>
     </div>
 
     <table class="table">
@@ -40,13 +45,7 @@
                 <tr>
                     <td>@item.Code</td>
                     <td>@item.DiscountPerCent</td>
-                    <td>
-                        @using (Html.BeginForm("DeleteDiscountCode", "AdminUI", FormMethod.Post))
-                        {
-                            @Html.HiddenFor(m => m.DiscountCodeVM.Id)
-                            <input type="submit" value="Delete" />
-                        }
-                    </td>
+                    <td>@Html.ActionLink("Delete", "DeleteDiscountCode", new { id = item.Id })</td>
                 </tr>
             }
         </tbody>
@@ -54,5 +53,7 @@
 
 
     @Scripts.Render("~/bundels/jsbootstrap")
+    <script src="~/Scripts/DiscountCodeScripts.js"></script>    
+    
 </body>
 </html>

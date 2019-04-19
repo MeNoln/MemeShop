@@ -89,7 +89,7 @@ namespace MemeShop.Controllers.Store
                 
                 return RedirectToAction("CheckEmail");
             }
-                //If some problems, show them to user, and sending back form model
+                //If some problems, showing them to user, and sending back form model
                 ViewBag.Status = "We have some problems. Please enter all enabled fields!";
                 return View(model);
         }
